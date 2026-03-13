@@ -19,20 +19,22 @@ async function sendEmail(data: {
   address?: string;
   message?: string;
 }) {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) return;
+  const serverToken = process.env.POSTMARK_SERVER_TOKEN;
+  const fromEmail = process.env.POSTMARK_FROM_EMAIL;
+  if (!serverToken || !fromEmail) return;
 
-  await fetch("https://api.resend.com/emails", {
+  await fetch("https://api.postmarkapp.com/email", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
+      Accept: "application/json",
+      "X-Postmark-Server-Token": serverToken,
     },
     body: JSON.stringify({
-      from: "Splash Bros <onboarding@resend.dev>",
-      to: "splashbrosnv@gmail.com",
-      subject: `New Quote Request - ${data.service} - ${data.name}`,
-      html: `
+      From: fromEmail,
+      To: "splashbrosnv@gmail.com",
+      Subject: `New Quote Request - ${data.service} - ${data.name}`,
+      HtmlBody: `
         <h2>New Quote Request</h2>
         <p><strong>Name:</strong> ${escapeHtml(data.name)}</p>
         <p><strong>Phone:</strong> ${escapeHtml(data.phone)}</p>
@@ -41,6 +43,7 @@ async function sendEmail(data: {
         <p><strong>Address:</strong> ${escapeHtml(data.address || "Not provided")}</p>
         <p><strong>Message:</strong> ${escapeHtml(data.message || "Not provided")}</p>
       `,
+      MessageStream: "outbound",
     }),
   });
 }

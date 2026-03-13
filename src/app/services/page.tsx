@@ -123,12 +123,12 @@ export default function ServicesPage() {
               >
                 Get a Quote
               </Link>
-              <Link
-                href="/contact"
+              <a
+                href="tel:604-540-3910"
                 className="rounded-full border-2 border-white px-8 py-4 text-base font-semibold text-white hover:bg-white/10 transition-colors"
               >
-                Contact Now
-              </Link>
+                Text or Call 604-540-3910
+              </a>
             </div>
           </ScrollReveal>
         </div>

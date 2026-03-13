@@ -53,12 +53,12 @@ export default function Navbar() {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <Link
-              href="/contact"
+            <a
+              href="tel:604-540-3910"
               className="rounded-full border border-gray-200 px-5 py-2.5 text-sm font-medium text-foreground hover:bg-gray-100 transition-colors"
             >
-              Contact Now
-            </Link>
+              Text or Call 604-540-3910
+            </a>
             <Link
               href="/contact"
               className="rounded-full bg-brand-orange px-5 py-2.5 text-sm font-medium text-white hover:bg-brand-orange-hover transition-colors"
@@ -121,13 +121,13 @@ export default function Navbar() {
               Contact
             </Link>
             <div className="flex flex-col gap-3 pt-4 border-t border-gray-200">
-              <Link
-                href="/contact"
+              <a
+                href="tel:604-540-3910"
                 className="text-center rounded-full border border-gray-200 px-5 py-3 text-sm font-medium"
                 onClick={() => setIsOpen(false)}
               >
-                Contact Now
-              </Link>
+                Text or Call 604-540-3910
+              </a>
               <Link
                 href="/contact"
                 className="text-center rounded-full bg-brand-orange px-5 py-3 text-sm font-medium text-white"
