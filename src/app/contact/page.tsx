@@ -1,12 +1,50 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useEffect, useRef, FormEvent } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
+
+declare global {
+  interface Window {
+    google: typeof google;
+  }
+}
 
 export default function ContactPage() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
   );
+  const addressRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    function initAutocomplete() {
+      if (!addressRef.current || !window.google?.maps?.places) return;
+      const autocomplete = new window.google.maps.places.Autocomplete(
+        addressRef.current,
+        {
+          types: ["address"],
+          componentRestrictions: { country: "ca" },
+        }
+      );
+      autocomplete.addListener("place_changed", () => {
+        const place = autocomplete.getPlace();
+        if (place.formatted_address && addressRef.current) {
+          addressRef.current.value = place.formatted_address;
+        }
+      });
+    }
+
+    if (window.google?.maps?.places) {
+      initAutocomplete();
+    } else {
+      const interval = setInterval(() => {
+        if (window.google?.maps?.places) {
+          clearInterval(interval);
+          initAutocomplete();
+        }
+      }, 200);
+      return () => clearInterval(interval);
+    }
+  }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -165,11 +203,13 @@ export default function ContactPage() {
                       Property Address
                     </label>
                     <input
+                      ref={addressRef}
                       type="text"
                       id="address"
                       name="address"
+                      autoComplete="off"
                       className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue transition-colors"
-                      placeholder="Your property address"
+                      placeholder="Start typing your address..."
                     />
                   </div>
 

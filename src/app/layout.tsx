@@ -1,3 +1,4 @@
+import Script from "next/script";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -42,6 +43,10 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <Script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdYQoqR0mRgrrQ1mK9_1Vtw9Ri3qS5tTM&libraries=places"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
