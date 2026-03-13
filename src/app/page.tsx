@@ -80,8 +80,8 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-center">
-              Why Homeowners and Businesses
-              <br className="hidden sm:block" /> Choose Splash Bros
+              Why Homeowners Choose
+              <br className="hidden sm:block" /> Splash Bros
             </h2>
           </ScrollReveal>
 
@@ -94,28 +94,16 @@ export default function Home() {
                 icon: "01",
               },
               {
-                title: "Detail-Focused",
-                description:
-                  "Professional and detail-focused work that shows in every job.",
-                icon: "02",
-              },
-              {
                 title: "Clear Communication",
                 description:
                   "Clear communication from start to finish so you always know what to expect.",
-                icon: "03",
-              },
-              {
-                title: "Community Trusted",
-                description:
-                  "Trusted by the North Vancouver community for three years running.",
-                icon: "04",
+                icon: "02",
               },
               {
                 title: "Simple Quotes",
                 description:
                   "Simple quotes and easy contact — no hassle, no hidden fees.",
-                icon: "05",
+                icon: "03",
               },
             ].map((item, index) => (
               <ScrollReveal key={item.title} delay={index * 100}>

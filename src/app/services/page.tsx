@@ -29,7 +29,6 @@ const services = [
     features: [
       "Driveways & walkways",
       "Patios & decks",
-      "Siding & fences",
       "Surface restoration",
     ],
   },
@@ -47,9 +46,6 @@ export default function ServicesPage() {
           <p className="mt-6 text-lg text-gray-600 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
             We specialize in window washing and also offer power washing and
             gutter cleaning for homes and businesses in North Vancouver.
-          </p>
-          <p className="mt-4 text-base font-semibold text-brand-orange animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-            Minimum service call: $99
           </p>
         </div>
       </section>

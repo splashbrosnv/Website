@@ -118,7 +118,7 @@ export default function ContactPage() {
                         id="name"
                         name="name"
                         required
-                        className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-brand-orange/50 focus:border-brand-orange transition-colors"
+                        className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue transition-colors"
                         placeholder="Your name"
                       />
                     </div>
@@ -134,7 +134,7 @@ export default function ContactPage() {
                         id="phone"
                         name="phone"
                         required
-                        className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-brand-orange/50 focus:border-brand-orange transition-colors"
+                        className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue transition-colors"
                         placeholder="778-000-0000"
                       />
                     </div>
@@ -152,7 +152,7 @@ export default function ContactPage() {
                       id="email"
                       name="email"
                       required
-                      className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-brand-orange/50 focus:border-brand-orange transition-colors"
+                      className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue transition-colors"
                       placeholder="you@email.com"
                     />
                   </div>
@@ -168,7 +168,7 @@ export default function ContactPage() {
                       id="service"
                       name="service"
                       required
-                      className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-brand-orange/50 focus:border-brand-orange transition-colors bg-white"
+                      className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue transition-colors bg-white"
                     >
                       <option value="">Select a service</option>
                       <option value="Window Washing">Window Washing</option>
@@ -191,7 +191,7 @@ export default function ContactPage() {
                       type="text"
                       id="address"
                       name="address"
-                      className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-brand-orange/50 focus:border-brand-orange transition-colors"
+                      className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue transition-colors"
                       placeholder="Your property address"
                     />
                   </div>
@@ -207,7 +207,7 @@ export default function ContactPage() {
                       id="message"
                       name="message"
                       rows={5}
-                      className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-brand-orange/50 focus:border-brand-orange transition-colors resize-none"
+                      className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue transition-colors resize-none"
                       placeholder="Tell us about your project..."
                     />
                   </div>
@@ -215,7 +215,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={status === "sending"}
-                    className="rounded-full bg-brand-orange px-8 py-4 text-base font-semibold text-white hover:bg-brand-orange-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="rounded-full bg-brand-blue px-8 py-4 text-base font-semibold text-white hover:bg-brand-blue/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {status === "sending" ? "Sending..." : "Request a Quote"}
                   </button>
