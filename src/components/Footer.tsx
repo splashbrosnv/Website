@@ -61,14 +61,6 @@ export default function Footer() {
               Contact
             </h4>
             <ul className="mt-4 flex flex-col gap-3">
-              <li>
-                <a
-                  href="mailto:splashbrosnv@gmail.com"
-                  className="text-sm text-gray-300 hover:text-white transition-colors"
-                >
-                  splashbrosnv@gmail.com
-                </a>
-              </li>
               <li className="text-sm text-gray-300">
                 North Vancouver, BC
               </li>

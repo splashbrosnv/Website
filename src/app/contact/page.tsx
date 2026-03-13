@@ -71,17 +71,6 @@ export default function ContactPage() {
                 <div className="mt-8 flex flex-col gap-6">
                   <div>
                     <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
-                      Email
-                    </h3>
-                    <a
-                      href="mailto:splashbrosnv@gmail.com"
-                      className="mt-1 text-lg text-foreground hover:text-brand-blue transition-colors"
-                    >
-                      splashbrosnv@gmail.com
-                    </a>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                       Location
                     </h3>
                     <p className="mt-1 text-lg">North Vancouver, BC</p>
