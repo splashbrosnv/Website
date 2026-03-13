@@ -75,20 +75,9 @@ export default function ContactPage() {
                     </h3>
                     <a
                       href="mailto:splashbrosnv@gmail.com"
-                      className="mt-1 text-lg text-foreground hover:text-brand-orange transition-colors"
+                      className="mt-1 text-lg text-foreground hover:text-brand-blue transition-colors"
                     >
                       splashbrosnv@gmail.com
-                    </a>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
-                      Phone
-                    </h3>
-                    <a
-                      href="tel:778-868-2514"
-                      className="mt-1 text-lg text-foreground hover:text-brand-orange transition-colors"
-                    >
-                      778-868-2514
                     </a>
                   </div>
                   <div>
@@ -173,7 +162,6 @@ export default function ContactPage() {
                       <option value="">Select a service</option>
                       <option value="Window Washing">Window Washing</option>
                       <option value="Power Washing">Power Washing</option>
-                      <option value="Gutter Cleaning">Gutter Cleaning</option>
                       <option value="Multiple Services">
                         Multiple Services
                       </option>

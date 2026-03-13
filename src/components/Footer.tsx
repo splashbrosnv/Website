@@ -69,14 +69,6 @@ export default function Footer() {
                   splashbrosnv@gmail.com
                 </a>
               </li>
-              <li>
-                <a
-                  href="tel:778-868-2514"
-                  className="text-sm text-gray-300 hover:text-white transition-colors"
-                >
-                  778-868-2514
-                </a>
-              </li>
               <li className="text-sm text-gray-300">
                 North Vancouver, BC
               </li>

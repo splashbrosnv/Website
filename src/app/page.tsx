@@ -203,12 +203,6 @@ export default function Home() {
               >
                 Get a Quote
               </Link>
-              <a
-                href="tel:778-868-2514"
-                className="rounded-full border-2 border-white px-8 py-4 text-base font-semibold text-white hover:bg-white/10 transition-colors"
-              >
-                Call Now
-              </a>
             </div>
           </ScrollReveal>
         </div>
