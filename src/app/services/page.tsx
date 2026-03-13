@@ -38,12 +38,20 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-20 sm:pt-40 sm:pb-28 bg-gray-100">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight animate-fade-in-up">
+      <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden">
+        <Image
+          src="/hero-bg.svg"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="hero-overlay absolute inset-0" />
+        <div className="relative z-10 mx-auto max-w-3xl px-6 lg:px-8 text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white animate-fade-in-up">
             Our Services
           </h1>
-          <p className="mt-6 text-lg text-gray-600 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+          <p className="mt-6 text-lg text-white/70 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
             We specialize in window washing and also offer power washing and
             gutter cleaning for homes and businesses in North Vancouver.
           </p>
