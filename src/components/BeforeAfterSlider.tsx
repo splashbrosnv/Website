@@ -19,6 +19,11 @@ const slides = [
     alt: "Driveway power washing before and after",
     label: "Power Washing",
   },
+  {
+    src: "/before-after-hottub.jpg",
+    alt: "Hot tub power washing before and after",
+    label: "Power Washing",
+  },
 ];
 
 export default function BeforeAfterSlider() {
