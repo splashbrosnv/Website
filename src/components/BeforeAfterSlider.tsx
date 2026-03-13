@@ -28,8 +28,10 @@ const slides = [
 
 export default function BeforeAfterSlider() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [isBarDragging, setIsBarDragging] = useState(false);
   const dragStart = useRef({ x: 0, scrollLeft: 0 });
 
   const scrollToIndex = useCallback((index: number) => {
@@ -50,8 +52,9 @@ export default function BeforeAfterSlider() {
   const next = () =>
     scrollToIndex(Math.min(slides.length - 1, activeIndex + 1));
 
-  // Drag handlers
+  // Drag handlers (mouse only — touch uses native scroll + snap)
   const onPointerDown = (e: React.PointerEvent) => {
+    if (e.pointerType === "touch") return;
     const container = scrollRef.current;
     if (!container) return;
     setIsDragging(true);
@@ -77,6 +80,36 @@ export default function BeforeAfterSlider() {
     scrollToIndex(index);
   };
 
+  // Scrubber bar drag handlers
+  const onBarPointerDown = (e: React.PointerEvent) => {
+    e.preventDefault();
+    setIsBarDragging(true);
+    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+    jumpBarToPosition(e.clientX);
+  };
+
+  const onBarPointerMove = (e: React.PointerEvent) => {
+    if (!isBarDragging) return;
+    jumpBarToPosition(e.clientX);
+  };
+
+  const onBarPointerUp = (e: React.PointerEvent) => {
+    if (!isBarDragging) return;
+    setIsBarDragging(false);
+    (e.target as HTMLElement).releasePointerCapture(e.pointerId);
+  };
+
+  const jumpBarToPosition = (clientX: number) => {
+    const bar = barRef.current;
+    if (!bar) return;
+    const rect = bar.getBoundingClientRect();
+    const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+    const index = Math.round(ratio * (slides.length - 1));
+    scrollToIndex(index);
+  };
+
+  const barProgress = slides.length > 1 ? activeIndex / (slides.length - 1) : 0;
+
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
@@ -89,8 +122,8 @@ export default function BeforeAfterSlider() {
       {/* Slides */}
       <div
         ref={scrollRef}
-        className="flex overflow-x-hidden snap-x snap-mandatory touch-pan-x"
-        style={{ cursor: isDragging ? "grabbing" : "grab" }}
+        className="flex overflow-x-auto snap-x snap-mandatory touch-pan-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        style={{ cursor: isDragging ? "grabbing" : "grab", scrollBehavior: "auto" }}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
@@ -143,8 +176,31 @@ export default function BeforeAfterSlider() {
         </button>
       )}
 
+      {/* Scrubber Bar */}
+      <div className="flex justify-center mt-5 px-4">
+        <div
+          ref={barRef}
+          className="relative w-full max-w-xs h-1.5 bg-gray-200 rounded-full cursor-pointer touch-none"
+          onPointerDown={onBarPointerDown}
+          onPointerMove={onBarPointerMove}
+          onPointerUp={onBarPointerUp}
+          onPointerCancel={onBarPointerUp}
+        >
+          {/* Fill */}
+          <div
+            className="absolute top-0 left-0 h-full bg-brand-blue rounded-full transition-all duration-300"
+            style={{ width: `${barProgress * 100}%` }}
+          />
+          {/* Thumb */}
+          <div
+            className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-brand-blue rounded-full shadow-md border-2 border-white transition-all duration-300"
+            style={{ left: `calc(${barProgress * 100}% - 10px)` }}
+          />
+        </div>
+      </div>
+
       {/* Dots */}
-      <div className="flex justify-center gap-2 mt-6">
+      <div className="flex justify-center gap-2 mt-4">
         {slides.map((slide, i) => (
           <button
             key={slide.src}
