@@ -46,12 +46,6 @@ export default function Home() {
               Contact Now
             </Link>
           </div>
-          <p
-            className="mt-6 text-sm text-white/60 animate-fade-in-up"
-            style={{ animationDelay: "0.6s" }}
-          >
-            Minimum service call starting at $99
-          </p>
         </div>
       </section>
 
@@ -149,7 +143,7 @@ export default function Home() {
             </h2>
           </ScrollReveal>
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
                 title: "Window Washing",
@@ -162,12 +156,6 @@ export default function Home() {
                 description:
                   "Refresh driveways, patios, walkways, siding, and other exterior surfaces.",
                 image: "/before-after-patio.jpg",
-              },
-              {
-                title: "Gutter Cleaning",
-                description:
-                  "Keep your gutters clear and functioning properly to protect your property.",
-                image: "/service-gutter.svg",
               },
             ].map((service, index) => (
               <ScrollReveal key={service.title} delay={index * 150}>

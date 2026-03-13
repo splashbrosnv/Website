@@ -33,18 +33,6 @@ const services = [
       "Surface restoration",
     ],
   },
-  {
-    title: "Gutter Cleaning",
-    description:
-      "We clear out gutters to help water flow properly and reduce the risk of overflow or buildup around your property.",
-    image: "/service-gutter.svg",
-    features: [
-      "Full gutter cleanout",
-      "Downspout flushing",
-      "Debris removal",
-      "Visual inspection",
-    ],
-  },
 ];
 
 export default function ServicesPage() {
