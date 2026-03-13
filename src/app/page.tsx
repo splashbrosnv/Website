@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 
 export default function Home() {
   return (
@@ -75,8 +76,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
+
+      {/* Before & After */}
       <section className="py-24 sm:py-32 bg-gray-100">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <ScrollReveal>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-center">
+              Before &amp; After
+            </h2>
+            <p className="mt-4 text-center text-gray-600 text-lg">
+              See the difference for yourself.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <div className="mt-12">
+              <BeforeAfterSlider />
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+      {/* Why Choose Us */}
+      <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-center">
