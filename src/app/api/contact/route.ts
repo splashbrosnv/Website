@@ -23,7 +23,7 @@ async function sendEmail(data: {
   const fromEmail = process.env.POSTMARK_FROM_EMAIL;
   if (!serverToken || !fromEmail) return;
 
-  await fetch("https://api.postmarkapp.com/email", {
+  const res = await fetch("https://api.postmarkapp.com/email", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -46,6 +46,8 @@ async function sendEmail(data: {
       MessageStream: "outbound",
     }),
   });
+  const result = await res.json();
+  console.log("Postmark response:", res.status, JSON.stringify(result));
 }
 
 async function sendSMS(data: {
