@@ -30,6 +30,7 @@ export default function BeforeAfterSlider() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const barRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [isBarDragging, setIsBarDragging] = useState(false);
   const dragStart = useRef({ x: 0, scrollLeft: 0 });
@@ -46,6 +47,8 @@ export default function BeforeAfterSlider() {
     if (!container) return;
     const index = Math.round(container.scrollLeft / container.offsetWidth);
     setActiveIndex(index);
+    const maxScroll = container.scrollWidth - container.offsetWidth;
+    setScrollProgress(maxScroll > 0 ? container.scrollLeft / maxScroll : 0);
   }, []);
 
   const prev = () => scrollToIndex(Math.max(0, activeIndex - 1));
@@ -80,7 +83,14 @@ export default function BeforeAfterSlider() {
     scrollToIndex(index);
   };
 
-  // Scrubber bar drag handlers
+  // Scrubber bar drag handlers — smooth continuous scroll
+  const scrollToRatio = useCallback((ratio: number) => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const maxScroll = container.scrollWidth - container.offsetWidth;
+    container.scrollTo({ left: ratio * maxScroll });
+  }, []);
+
   const onBarPointerDown = (e: React.PointerEvent) => {
     e.preventDefault();
     setIsBarDragging(true);
@@ -97,6 +107,11 @@ export default function BeforeAfterSlider() {
     if (!isBarDragging) return;
     setIsBarDragging(false);
     (e.target as HTMLElement).releasePointerCapture(e.pointerId);
+    // Snap to nearest slide on release
+    const container = scrollRef.current;
+    if (!container) return;
+    const index = Math.round(container.scrollLeft / container.offsetWidth);
+    scrollToIndex(index);
   };
 
   const jumpBarToPosition = (clientX: number) => {
@@ -104,11 +119,12 @@ export default function BeforeAfterSlider() {
     if (!bar) return;
     const rect = bar.getBoundingClientRect();
     const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-    const index = Math.round(ratio * (slides.length - 1));
-    scrollToIndex(index);
+    scrollToRatio(ratio);
   };
 
-  const barProgress = slides.length > 1 ? activeIndex / (slides.length - 1) : 0;
+  // Thumb width as fraction, and max left so thumb stays within track
+  const thumbFraction = 1 / slides.length;
+  const thumbLeft = scrollProgress * (1 - thumbFraction) * 100;
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -122,8 +138,8 @@ export default function BeforeAfterSlider() {
       {/* Slides */}
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto snap-x snap-mandatory touch-pan-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        style={{ cursor: isDragging ? "grabbing" : "grab", scrollBehavior: "auto" }}
+        className={`flex overflow-x-auto touch-pan-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${isBarDragging ? "" : "snap-x snap-mandatory"}`}
+        style={{ cursor: isDragging ? "grabbing" : "grab" }}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
@@ -176,25 +192,23 @@ export default function BeforeAfterSlider() {
         </button>
       )}
 
-      {/* Scrubber Bar */}
+      {/* Scrubber Bar — horizontal pill slider */}
       <div className="flex justify-center mt-5 px-4">
         <div
           ref={barRef}
-          className="relative w-full max-w-xs h-1.5 bg-gray-200 rounded-full cursor-pointer touch-none"
+          className="relative w-24 h-1 bg-gray-300/80 rounded-full cursor-pointer touch-none"
           onPointerDown={onBarPointerDown}
           onPointerMove={onBarPointerMove}
           onPointerUp={onBarPointerUp}
           onPointerCancel={onBarPointerUp}
         >
-          {/* Fill */}
+          {/* Sliding pill thumb */}
           <div
-            className="absolute top-0 left-0 h-full bg-brand-blue rounded-full transition-all duration-300"
-            style={{ width: `${barProgress * 100}%` }}
-          />
-          {/* Thumb */}
-          <div
-            className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-brand-blue rounded-full shadow-md border-2 border-white transition-all duration-300"
-            style={{ left: `calc(${barProgress * 100}% - 10px)` }}
+            className={`absolute top-1/2 -translate-y-1/2 h-1 rounded-full bg-gray-500 ${isBarDragging ? "" : "transition-all duration-300"}`}
+            style={{
+              width: `${thumbFraction * 100}%`,
+              left: `${thumbLeft}%`,
+            }}
           />
         </div>
       </div>
