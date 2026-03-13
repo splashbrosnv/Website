@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="skyBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dbeafe"/>
+      <stop offset="100%" stop-color="#eff6ff"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#bfdbfe"/>
+      <stop offset="100%" stop-color="#93c5fd"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#skyBg)"/>
+  <!-- Building facade -->
+  <rect x="100" y="50" width="600" height="550" fill="#e2e8f0" rx="8"/>
+  <!-- Window grid -->
+  <g>
+    <rect x="140" y="90" width="130" height="180" rx="6" fill="url(#glass)" stroke="#94a3b8" stroke-width="2"/>
+    <line x1="205" y1="90" x2="205" y2="270" stroke="#94a3b8" stroke-width="1.5"/>
+    <line x1="140" y1="180" x2="270" y2="180" stroke="#94a3b8" stroke-width="1.5"/>
+    <rect x="335" y="90" width="130" height="180" rx="6" fill="url(#glass)" stroke="#94a3b8" stroke-width="2"/>
+    <line x1="400" y1="90" x2="400" y2="270" stroke="#94a3b8" stroke-width="1.5"/>
+    <line x1="335" y1="180" x2="465" y2="180" stroke="#94a3b8" stroke-width="1.5"/>
+    <rect x="530" y="90" width="130" height="180" rx="6" fill="url(#glass)" stroke="#94a3b8" stroke-width="2"/>
+    <line x1="595" y1="90" x2="595" y2="270" stroke="#94a3b8" stroke-width="1.5"/>
+    <line x1="530" y1="180" x2="660" y2="180" stroke="#94a3b8" stroke-width="1.5"/>
+    <rect x="140" y="310" width="130" height="180" rx="6" fill="url(#glass)" stroke="#94a3b8" stroke-width="2"/>
+    <line x1="205" y1="310" x2="205" y2="490" stroke="#94a3b8" stroke-width="1.5"/>
+    <line x1="140" y1="400" x2="270" y2="400" stroke="#94a3b8" stroke-width="1.5"/>
+    <rect x="335" y="310" width="130" height="180" rx="6" fill="url(#glass)" stroke="#94a3b8" stroke-width="2"/>
+    <line x1="400" y1="310" x2="400" y2="490" stroke="#94a3b8" stroke-width="1.5"/>
+    <line x1="335" y1="400" x2="465" y2="400" stroke="#94a3b8" stroke-width="1.5"/>
+    <rect x="530" y="310" width="130" height="180" rx="6" fill="url(#glass)" stroke="#94a3b8" stroke-width="2"/>
+    <line x1="595" y1="310" x2="595" y2="490" stroke="#94a3b8" stroke-width="1.5"/>
+    <line x1="530" y1="400" x2="660" y2="400" stroke="#94a3b8" stroke-width="1.5"/>
+  </g>
+  <!-- Squeegee -->
+  <g transform="translate(480, 200) rotate(-30)">
+    <rect x="-60" y="-6" width="120" height="12" rx="3" fill="#1a3a8f"/>
+    <rect x="-55" y="6" width="110" height="3" rx="1" fill="#60a5fa"/>
+    <rect x="-4" y="-6" width="8" height="-100" rx="4" fill="#f58220"/>
+    <rect x="-8" y="-110" width="16" height="20" rx="4" fill="#f58220"/>
+  </g>
+  <!-- Sparkles on clean windows -->
+  <g fill="white" opacity="0.8">
+    <polygon points="565,130 570,140 580,140 572,147 575,157 565,150 555,157 558,147 550,140 560,140" transform="scale(0.6) translate(630,100)"/>
+    <polygon points="565,130 570,140 580,140 572,147 575,157 565,150 555,157 558,147 550,140 560,140" transform="scale(0.5) translate(350,450)"/>
+    <polygon points="565,130 570,140 580,140 572,147 575,157 565,150 555,157 558,147 550,140 560,140" transform="scale(0.4) translate(900,700)"/>
+  </g>
+  <!-- Water drips -->
+  <g fill="#1a3a8f" opacity="0.3">
+    <ellipse cx="500" cy="285" rx="3" ry="5"/>
+    <ellipse cx="520" cy="295" rx="2" ry="4"/>
+    <ellipse cx="540" cy="290" rx="2.5" ry="4.5"/>
+  </g>
+</svg>

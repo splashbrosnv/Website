@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#f0f4f8"/>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#87CEEB" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#f0f4f8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gutter" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a0aec0"/>
+      <stop offset="100%" stop-color="#718096"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="300" fill="url(#sky)"/>
+  <rect x="100" y="280" width="600" height="320" fill="#e2e8f0" rx="4"/>
+  <line x1="100" y1="340" x2="700" y2="340" stroke="#cbd5e0" stroke-width="1"/>
+  <line x1="100" y1="400" x2="700" y2="400" stroke="#cbd5e0" stroke-width="1"/>
+  <line x1="100" y1="460" x2="700" y2="460" stroke="#cbd5e0" stroke-width="1"/>
+  <polygon points="50,280 400,100 750,280" fill="#4a5568"/>
+  <rect x="40" y="272" width="720" height="18" rx="3" fill="url(#gutter)"/>
+  <rect x="42" y="274" width="716" height="6" rx="2" fill="#a0aec0" opacity="0.5"/>
+  <ellipse cx="120" cy="278" rx="12" ry="6" fill="#68d391" opacity="0.7"/>
+  <ellipse cx="145" cy="280" rx="10" ry="5" fill="#48bb78" opacity="0.6"/>
+  <ellipse cx="180" cy="279" rx="14" ry="5" fill="#9ae6b4" opacity="0.5"/>
+  <ellipse cx="210" cy="277" rx="8" ry="5" fill="#68d391" opacity="0.7"/>
+  <ellipse cx="240" cy="280" rx="11" ry="4" fill="#48bb78" opacity="0.6"/>
+  <ellipse cx="270" cy="278" rx="9" ry="5" fill="#9ae6b4" opacity="0.5"/>
+  <ellipse cx="300" cy="279" rx="13" ry="5" fill="#68d391" opacity="0.6"/>
+  <rect x="155" y="275" width="20" height="4" rx="2" fill="#805a36" opacity="0.4" transform="rotate(-15 165 277)"/>
+  <rect x="400" y="274" width="350" height="6" rx="2" fill="#b0bec5" opacity="0.3"/>
+  <line x1="400" y1="100" x2="400" y2="600" stroke="white" stroke-width="3"/>
+  <rect x="140" y="510" width="140" height="44" rx="22" fill="rgba(0,0,0,0.6)"/>
+  <text x="210" y="538" text-anchor="middle" fill="white" font-family="system-ui, sans-serif" font-size="18" font-weight="600">BEFORE</text>
+  <rect x="520" y="510" width="140" height="44" rx="22" fill="rgba(0,0,0,0.6)"/>
+  <text x="590" y="538" text-anchor="middle" fill="white" font-family="system-ui, sans-serif" font-size="18" font-weight="600">AFTER</text>
+  <rect x="200" y="340" width="100" height="120" rx="4" fill="#b8c9db" stroke="#a0aec0" stroke-width="2"/>
+  <line x1="250" y1="340" x2="250" y2="460" stroke="#a0aec0" stroke-width="2"/>
+  <line x1="200" y1="400" x2="300" y2="400" stroke="#a0aec0" stroke-width="2"/>
+  <circle cx="225" cy="370" r="4" fill="#a0aec0" opacity="0.4"/>
+  <circle cx="270" cy="420" r="3" fill="#a0aec0" opacity="0.3"/>
+  <rect x="500" y="340" width="100" height="120" rx="4" fill="#dbeafe" stroke="#a0aec0" stroke-width="2"/>
+  <line x1="550" y1="340" x2="550" y2="460" stroke="#a0aec0" stroke-width="2"/>
+  <line x1="500" y1="400" x2="600" y2="400" stroke="#a0aec0" stroke-width="2"/>
+  <line x1="515" y1="355" x2="530" y2="370" stroke="white" stroke-width="2" opacity="0.6"/>
+  <rect x="714" y="290" width="12" height="200" rx="2" fill="#718096"/>
+  <path d="M720 290 Q722 320 718 350 Q720 380 716 410" stroke="#1a3a8f" stroke-width="3" fill="none" opacity="0.4" stroke-linecap="round"/>
+  <circle cx="716" cy="420" r="4" fill="#1a3a8f" opacity="0.3"/>
+  <rect x="74" y="290" width="12" height="100" rx="2" fill="#718096"/>
+  <ellipse cx="80" cy="295" rx="8" ry="4" fill="#68d391" opacity="0.5"/>
+</svg>

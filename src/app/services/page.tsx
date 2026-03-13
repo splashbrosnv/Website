@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -12,6 +13,7 @@ const services = [
     title: "Window Washing",
     description:
       "Window washing is our specialty. We provide clean, streak-free results that improve the appearance of your home or business and let more natural light in.",
+    image: "/before-after-glass.jpg",
     features: [
       "Interior & exterior windows",
       "Streak-free results",
@@ -23,6 +25,7 @@ const services = [
     title: "Power Washing",
     description:
       "Our power washing service helps remove dirt, buildup, and grime from exterior surfaces, leaving your property looking refreshed and well-maintained.",
+    image: "/before-after-patio.jpg",
     features: [
       "Driveways & walkways",
       "Patios & decks",
@@ -34,6 +37,7 @@ const services = [
     title: "Gutter Cleaning",
     description:
       "We clear out gutters to help water flow properly and reduce the risk of overflow or buildup around your property.",
+    image: "/service-gutter.svg",
     features: [
       "Full gutter cleanout",
       "Downspout flushing",
@@ -73,15 +77,17 @@ export default function ServicesPage() {
                     index % 2 === 1 ? "lg:direction-rtl" : ""
                   }`}
                 >
-                  {/* Image placeholder */}
                   <div
-                    className={`aspect-[4/3] rounded-2xl bg-gray-100 flex items-center justify-center overflow-hidden ${
+                    className={`aspect-[4/3] rounded-2xl overflow-hidden relative ${
                       index % 2 === 1 ? "lg:order-2" : ""
                     }`}
                   >
-                    <span className="text-8xl font-bold text-brand-blue/10">
-                      {service.title[0]}
-                    </span>
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover rounded-2xl"
+                    />
                   </div>
 
                   {/* Content */}

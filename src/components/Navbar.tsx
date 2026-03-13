@@ -16,9 +16,9 @@ export default function Navbar() {
             <Image
               src="/logo.png"
               alt="Splash Bros"
-              width={160}
-              height={50}
-              className="h-10 w-auto"
+              width={360}
+              height={100}
+              className="h-12 w-auto"
               priority
             />
           </Link>

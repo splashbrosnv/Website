@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -6,17 +7,13 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Video Background — replace /hero-video.mp4 with your drone footage */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          poster="/hero-poster.jpg"
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
+        <Image
+          src="/hero-bg.svg"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+        />
         <div className="hero-overlay absolute inset-0" />
 
         <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
@@ -158,26 +155,30 @@ export default function Home() {
                 title: "Window Washing",
                 description:
                   "Our specialty. We deliver clean, streak-free windows that brighten your home or business.",
+                image: "/before-after-glass.jpg",
               },
               {
                 title: "Power Washing",
                 description:
                   "Refresh driveways, patios, walkways, siding, and other exterior surfaces.",
+                image: "/before-after-patio.jpg",
               },
               {
                 title: "Gutter Cleaning",
                 description:
                   "Keep your gutters clear and functioning properly to protect your property.",
+                image: "/service-gutter.svg",
               },
             ].map((service, index) => (
               <ScrollReveal key={service.title} delay={index * 150}>
                 <div className="group rounded-2xl overflow-hidden bg-gray-100 h-full">
-                  <div className="aspect-[4/3] bg-gray-200 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-brand-blue/10 flex items-center justify-center">
-                      <span className="text-6xl font-bold text-brand-blue/20">
-                        {service.title[0]}
-                      </span>
-                    </div>
+                  <div className="aspect-[4/3] relative overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
                   <div className="p-8">
                     <h3 className="text-xl font-semibold">{service.title}</h3>
