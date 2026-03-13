@@ -196,7 +196,7 @@ export default function BeforeAfterSlider() {
       <div className="flex justify-center mt-5 px-4">
         <div
           ref={barRef}
-          className="relative w-24 h-1 bg-gray-300/80 rounded-full cursor-pointer touch-none"
+          className="relative w-36 h-1.5 bg-gray-300/80 rounded-full cursor-pointer touch-none"
           onPointerDown={onBarPointerDown}
           onPointerMove={onBarPointerMove}
           onPointerUp={onBarPointerUp}
@@ -204,7 +204,7 @@ export default function BeforeAfterSlider() {
         >
           {/* Sliding pill thumb */}
           <div
-            className={`absolute top-1/2 -translate-y-1/2 h-1 rounded-full bg-gray-500 ${isBarDragging ? "" : "transition-all duration-300"}`}
+            className={`absolute top-1/2 -translate-y-1/2 h-1.5 rounded-full bg-gray-500 ${isBarDragging ? "" : "transition-all duration-300"}`}
             style={{
               width: `${thumbFraction * 100}%`,
               left: `${thumbLeft}%`,
