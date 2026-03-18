@@ -21,6 +21,10 @@ export const metadata: Metadata = {
     "North Vancouver",
     "exterior cleaning",
   ],
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
   openGraph: {
     title: "Splash Bros | We Make Your Windows Shine",
     description:
