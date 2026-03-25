@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-icon.png',
   },
+  manifest: '/manifest.json',
   openGraph: {
     title: "Splash Bros | We Make Your Windows Shine",
     description:
