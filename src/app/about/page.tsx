@@ -30,36 +30,27 @@ export default function AboutPage() {
       {/* Meet the Bros */}
       <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <ScrollReveal>
-              <div className="aspect-[3/4] relative rounded-2xl overflow-hidden max-w-sm mx-auto lg:mx-0 shadow-xl">
-                <Image
-                  src="/dane-and-jack.jpg"
-                  alt="Dane and Jack - Splash Bros founders"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </ScrollReveal>
+          <div className="max-w-3xl mx-auto">
             <div>
               <ScrollReveal delay={100}>
                 <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-                  We&apos;re Dane and Jack
+                  I&apos;m Dane
                 </h2>
+                <p className="mt-2 text-xl text-gray-500">An entrepreneur</p>
               </ScrollReveal>
               <ScrollReveal delay={200}>
                 <p className="mt-6 text-lg leading-relaxed text-gray-600">
-                  We&apos;re two young local business partners proud to serve our
+                  I am a young local entrepreneur proud to serve my
                   community with reliable window washing and exterior cleaning
                   services. This is our third year as an officially declared
-                  business, and we&apos;re thankful for the support we&apos;ve
+                  business, and I am thankful for the support I&apos;ve
                   received along the way.
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={300}>
                 <p className="mt-6 text-lg leading-relaxed text-gray-600">
-                  We specialize in window washing, and we also offer power
-                  washing. We enjoy building relationships in our community and
+                  I specialize in window washing, and I also offer power
+                  washing. I enjoy building relationships in our community and
                   making sure our customers feel taken care of and happy with the
                   final result.
                 </p>
