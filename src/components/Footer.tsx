@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold tracking-tight">Splash Bros</h3>
             <p className="mt-3 text-sm text-gray-400 leading-relaxed">
-              Professional window washing, power washing, and gutter cleaning in
+              Professional power washing, window washing, and gutter cleaning in
               North Vancouver, BC.
             </p>
           </div>

@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Splash Bros | Professional Window Washing in North Vancouver",
+  title: "Splash Bros | Professional Power Washing in North Vancouver",
   description:
     "Reliable window washing, power washing, and gutter cleaning from a trusted local team in North Vancouver, BC.",
   keywords: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Splash Bros | We Make Your Windows Shine",
     description:
-      "Professional window washing, power washing, and gutter cleaning in North Vancouver.",
+      "Professional power washing, window washing, and gutter cleaning in North Vancouver.",
     url: "https://splashbrothers.ca",
     siteName: "Splash Bros",
     locale: "en_CA",

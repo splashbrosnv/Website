@@ -19,7 +19,7 @@ export default function Home() {
 
         <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight animate-fade-in-up">
-            Professional Window Washing
+            Professional Power Washing
             <br />
             in North Vancouver
           </h1>
